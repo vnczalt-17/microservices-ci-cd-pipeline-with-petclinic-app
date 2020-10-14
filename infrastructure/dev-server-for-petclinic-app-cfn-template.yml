@@ -1,13 +1,16 @@
 AWSTemplateFormatVersion: 2010-09-09
+
 Description: >
   This Cloudformation template prepares development environment for 
   Petclinic Microservices Application.
   User needs to select appropriate key name when launching the template.
+
 Parameters:
   KeyPairName:
     Description: Enter the name of your Key Pair for SSH connections.
     Type: AWS::EC2::KeyPair::KeyName
     ConstraintDescription: Must one of the existing EC2 KeyPair
+
 Resources:
   PetclinicDemoSG:
     Type: AWS::EC2::SecurityGroup
@@ -95,7 +98,7 @@ Resources:
             # install Git
             sudo yum install git -y
             cd /home/ec2-user
-            git clone https://github.com/vnczalt-17/microservices-ci-cd-pipeline-with-petclinic-app.git
+            git clone https://github.com/callahan-cw/microservices-ci-cd-pipeline-with-petclinic-app.git
             git fetch
             git checkout dev
   PetclinicServer:
@@ -111,3 +114,4 @@ Outputs:
   PetclinicServerDNSName:
     Description: Petclinic App URL
     Value: !GetAtt PetclinicServer.PublicDnsName
+  

@@ -1,2 +1,2 @@
-#test-local-deployment.sh
+# test-local-deployment
 docker-compose -f docker-compose-local.yml up
